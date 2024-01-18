@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function MinutesToHour() {
+      const [amount, setAmount] = React.useState(0); //기본값으로 0을 설정, 값을 변환시키는 함수는 setAmount
+      const [inverted, setInverted] = React.useState(false); //기본값으로 false를 설정한다, 값을 변환시기키는 함수는  setInverted
+      const onChange = (event) => {
+        //event는 우리가 원하는 값이 들어가 있다 자바스크립트가 우리에게 정보를 주는 변수이다.
+        setAmount(event.target.value);
+      };
+      const reset = () => {
+        setAmount(0);
+      };
+      const onInvert = () => {
+        reset();
+        setInverted((current) => !current);
+      };
+      //JSX와 html은 다른 것이기 때문에 react로 JSX를 사용할 경우 class와 for 속성자는 사용할 수 없다.
+      //대신에 className과 htmlfor을 사용해 주어야 한다.
+      return (
+        <div>
+          <div>
+            <label htmlfor="minutes">Minutes</label>
+            <input
+              value={inverted ? amount * 60 : amount} //서브제출용으로써 사용된다. it's used as submit to server
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+              disabled={inverted} //disabled의 뜻은 사용할 수 없다이다.
+            />
+          </div>
+          <div>
+            <label htmlfor="hours">Hours</label>
+            <input
+              value={inverted ? amount : Math.round(amount / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+              disabled={!inverted}
+              onChange={onChange}
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onInvert}>
+            {inverted ? "turned back" : "invert"}
+          </button>
+        </div>
+      );
+    }
+    function KmtoMiles() {
+      const [amount, setAmount] = React.useState(0);
+      const [invert, setInvert] = React.useState(false)
+      const onChange = () => {
+        setAmount(event.target.value);
+      }
+      const Reset = () => {
+        setAmount(0);
+      }
+      const onInvert = () => {
+        Reset();
+        setInvert((current) => !current)
+      }
+      return (
+        <div>
+          <div>
+            <label htmlfor="Km">Km</label>
+            <input
+              value={invert ? amount * 1.6 : amount}
+              id = "Km"
+              placeholder ="Km"
+              type="number" 
+              onChange={onChange}
+              disabled={invert}
+            />
+          </div>
+          <div>
+            <label htmlfor="Miles">Miles</label>
+            <input
+              value={invert ? amount : amount / 1.6}
+              id = "Miles"
+              placeholder ="Miles"
+              type="number" 
+              disabled={!invert}
+              onChange={onChange}
+            />
+          </div>
+          <button onClick={Reset}>Reset</button>
+          <button onClick={onInvert}>Invert</button>
+        </div>
+      )
+    }
+    function App() {
+      const [index, setIndex] = React.useState("0");
+      const onSelect = (event) => {
+        setIndex(event.target.value);
+      };
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="0">Minutes&Hours</option>
+            <option value="1">Km & Miles</option>
+          </select>
+          <hr />
+          {index === "0" ? <MinutesToHour /> : null}
+          {index === "1" ? <KmtoMiles /> : null}
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
