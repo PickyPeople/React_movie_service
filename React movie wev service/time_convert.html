@@ -14,8 +14,8 @@
 <script type="text/babel"> 
     const root = document.getElementById("root");
     function App () {
-        const [amount, setAmount] = React.useState(0);
-        const [flipped, setFlipped] = React.useState(false);
+        const [amount, setAmount] = React.useState(0); //기본값으로 0을 설정, 값을 변환시키는 함수는 setAmount
+        const [flipped, setFlipped] = React.useState(false); //기본값으로 false를 설정한다, 값을 변환시기키는 함수는  setFlipped
         const onChange = (event) => { //event는 우리가 원하는 값이 들어가 있다 자바스크립트가 우리에게 정보를 주는 변수이다.
             setAmount(event.target.value);
         };
@@ -31,7 +31,7 @@
         return (
             <div>
                 <div>
-                    <h1>Super converter</h1>
+                    <h1>Super Time Converter</h1>
                     <label htmlfor="minutes">Minutes</label>
                     <input
                         value={flipped ? amount * 60 : amount} //서브제출용으로써 사용된다. it's used as submit to server
@@ -39,7 +39,7 @@
                         placeholder="Minutes" 
                         type="number"
                         onChange={onChange} 
-                        disabled={flipped}
+                        disabled={flipped} //disabled의 뜻은 사용할 수 없다이다.
                     />
                 </div>
                 <div>
