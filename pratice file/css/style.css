@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700);
+
 *{
   margin: 0;
   padding: 0;
@@ -11,38 +13,37 @@
 }
 
 .allContent{
-  width: 100%;
+  width: 50%;
   height: 100%;
+  margin: 0 auto;
 }
 
 .title{
   background-color: skyblue;
-  width: 100%;
-  height: 20vh;
-  font-size: 5vw;
+  width: 50vw;
+  height: 15vh;
+  font-size: 3vw;
   text-align: center;
 }
 
 .leftAside{
-  float: left;
-  background-color: bisque;
-  width: 9vw;
-  height: 65vh;
+  width: 50vw;
+  height: 12vh;
   font-size: 2.2vw;
 }
 
 .mainContent{
-  background-color: blue;
-  float: right;
-  width: 91vw;
-  height: 65vh;
-  font-size: 3vw;
+  
+  width: 50vw;
+  height: 60vh;
+ 
 }
 
 .footer{
   clear: both;
+  width: 50vw;
   background-color: blueviolet;
-  height: 14vh;
+  height: 12vh;
   font-size: 1vw;
 }
 /*
@@ -56,15 +57,99 @@
 }
 
 .buttons{
+  display: inline;
+  float: left;
   text-align: center;
-  width: 8.3vw;
-  margin: auto 1vw;
+  width: 50vw;
+  margin: auto 5vw;
 }
 
 .button {
-  background-color: aqua;
-  width: 100%;
-  margin-top: 7.5vh;
-  border-radius: 10px;
-  
+  display: block;
+  position: relative;
+  float: left;
+  width: 120px;
+  padding: 0;
+  margin: 10px 20px 10px 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  transition: all 0.2s ;
+  cursor: pointer;
 }
+
+.btnBlueGreen {
+  background: #00AE68;
+}
+
+.btnLightBlue {
+  background: #5DC8CD;
+}
+
+.btnOrange {
+  background: #FFAA40;
+}
+
+.btnPurple {
+  background: #A74982;
+}
+
+.btnBlueGreen.btnPush {
+  box-shadow: 0px 5px 0px 0px #007144;
+}
+
+.btnLightBlue.btnPush {
+  box-shadow: 0px 5px 0px 0px #1E8185;
+}
+
+.btnOrange.btnPush {
+  box-shadow: 0px 5px 0px 0px #A66615;
+}
+
+.btnPurple.btnPush {
+  box-shadow: 0px 5px 0px 0px #6D184B;
+}
+
+.btnPush:hover {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.btnBlueGreen.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.btnLightBlue.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #1E8185;
+}
+
+.btnOrange.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #A66615;
+}
+
+.btnPurple.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #6D184B;
+}
+
+.album{
+  width: 50vw;
+  height: 100%;
+  width: fit-content;
+}
+
+.pic1, .pic2, .pic4{
+  margin: auto 15vw;
+  width: 100%;
+  height: 100%;
+  width: fit-content;
+}
+
+.pic3{
+  margin: auto 3vw;
+  width: 100%;
+  height: 100%;
+  width: fit-content;
+}
+

@@ -14,28 +14,36 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function Title() {
-      return <div>무슨 게임을 만들어 볼까요?</div>;
+      return <div>간단한 사진첩 만들기</div>;
     }
 
-    function MainContent() {
-      return (
-        <div>
-          <p>여기는 메인콘텐츠 부분입니다.</p>
-        </div>
-      );
-    }
-
-    function LeftAside() {
+    function SelectBtn() {
       return (
         <div className="buttons">
-          <p className="button">Button</p>
-          <p className="button">Button</p>
-          <p className="button">Button</p>
-          <p className="button">Button</p>
+          <p className="button btnPush btnBlueGreen" name="img/국문아1.jpg" onClick={newDrawPic1}>
+            사진1
+          </p>
+          <p className="button btnPush btnLightBlue" name="img/국문아2.jpg" onClick={newDrawPic2}>
+            사진2
+          </p>
+          <p className="button btnPush btnOrange" name="img/국문아3.jpg" onClick={newDrawPic3}>
+            사진3
+          </p>
+          <p className="button btnPush btnPurple" name="img/국문아4.jpg" onClick={newDrawPic4}>
+            사진4
+          </p>
         </div>
       );
     }
 
+    function PutPic() {
+      return (
+        <div className="album">
+          <img  src="" />
+        </div>
+      );
+    }
+    
     function Footer() {
       return (
         <div>
@@ -44,26 +52,55 @@
       );
     }
 
+    function newDrawPic1(){
+      const pic = document.querySelector(".album img");
+      pic.src="img/국문아1.jpg"
+      pic.className = "pic1"
+    }
+
+    function newDrawPic2(){
+      const pic = document.querySelector(".album img");
+      pic.src="img/국문아2.jpg"
+      pic.className = "pic2"
+    }
+
+    function newDrawPic3(){
+      const pic = document.querySelector(".album img");
+      pic.src="img/국문아3.jpg"
+      pic.className = "pic3"
+    }
+
+    function newDrawPic4(){
+      const pic = document.querySelector(".album img");
+      pic.src="img/국문아4.jpg"
+      pic.className = "pic4"
+    }
+
     function App() {
+      const [pic, setPic] = React.useState("")
+
       return (
         <div className="allContent">
           <div className="title">
             <Title />
           </div>
           <div className="leftAside">
-            <LeftAside />
+            <SelectBtn />
           </div>
-          <div className="mainContent">
-            <MainContent />
+          <div className="mainContent" id="mainContent">
+            <PutPic />
           </div>
           <div className="footer">
             <Footer />
           </div>
         </div>
       );
+
     }
     const container = document.getElementById("container");
     ReactDOM.render(<App />, container);
+
+
   </script>
-  <script src="js/pratice.jsx"></script>
+  <script src="js/pratice.js"></script>
 </html>
