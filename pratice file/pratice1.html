@@ -20,7 +20,7 @@
     function SelectBtn() {
       return (
         <div className="buttons">
-          <p className="button btnPush btnBlueGreen" name="img/국문아1.jpg" onClick={newDrawPic1}>
+          <p className="button btnPush btnBlueGreen" name="img/국문아1.jpg" onClick={newDrawPic} >
             사진1
           </p>
           <p className="button btnPush btnLightBlue" name="img/국문아2.jpg" onClick={newDrawPic2}>
@@ -36,10 +36,10 @@
       );
     }
 
-    function PutPic() {
+    function PutPic({text}) {
       return (
         <div className="album">
-          <img  src="" />
+          <img  src={text} />
         </div>
       );
     }
@@ -52,10 +52,10 @@
       );
     }
 
-    function newDrawPic1(){
+    function newDrawPic(){
       const pic = document.querySelector(".album img");
-      pic.src="img/국문아1.jpg"
-      pic.className = "pic1"
+      pic.src="img/국문아" + 1 + ".jpg"
+      pic.className = "pic" + 1
     }
 
     function newDrawPic2(){
@@ -78,6 +78,9 @@
 
     function App() {
       const [pic, setPic] = React.useState("")
+      function changePic() {
+        setPic("1")
+      }
 
       return (
         <div className="allContent">
@@ -88,7 +91,7 @@
             <SelectBtn />
           </div>
           <div className="mainContent" id="mainContent">
-            <PutPic />
+            <PutPic text={pic}/>
           </div>
           <div className="footer">
             <Footer />
