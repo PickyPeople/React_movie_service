@@ -16,6 +16,7 @@
       const [amount, setAmount] = React.useState(0); //기본값으로 0을 설정, 값을 변환시키는 함수는 setAmount
       const [inverted, setInverted] = React.useState(false); //기본값으로 false를 설정한다, 값을 변환시기키는 함수는  setInverted
       const onChange = (event) => {
+        console.log(event);
         //event는 우리가 원하는 값이 들어가 있다 자바스크립트가 우리에게 정보를 주는 변수이다.
         setAmount(event.target.value);
       };
@@ -37,7 +38,7 @@
               id="minutes"
               placeholder="Minutes"
               type="number"
-              onChange={onChange}
+              onChange={onChange} //onChange 무엇인가의 값이 갱신 될 때 마다 발생하는 함수이다.
               disabled={inverted} //disabled의 뜻은 사용할 수 없다이다.
             />
           </div>

@@ -23,7 +23,7 @@
       return (
         <div className="buttons">
           <p className="button btnPush btnBlueGreen" name="img/국문아1.jpg" onClick={newDrawPic} >
-            사진1
+            사진1 
           </p>
           <p className="button btnPush btnLightBlue" name="img/국문아2.jpg" onClick={newDrawPic2}>
             사진2
@@ -38,10 +38,10 @@
       );
     }
 
-    function PutPic({text}) {
+    function PutPic() {
       return (
         <div className="album">
-          <img  src={text} />
+          <img  src="" />
         </div>
       );
     }
@@ -64,7 +64,7 @@
             <SelectBtn />
           </div>
           <div className="mainContent" id="mainContent">
-            <PutPic text={pic}/>
+            <PutPic />
           </div>
           <div className="footer">
             <Footer />

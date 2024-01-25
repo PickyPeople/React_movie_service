@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    function Content() {
+        const [num, setNum] = React.useState(1);
+        const clickNum = () => {
+            setNum(num + 2);
+        }
+        return (
+            <div>
+                <h1>홀수 증가 만들기</h1>
+                <h3>Num : {num}</h3>
+                <button onClick={clickNum}>Click</button>
+            </div>
+            
+        )
+    }
+    const container = document.getElementById("container");
+    ReactDOM.render(<Content />, container);
+</script>
+
+</html>
